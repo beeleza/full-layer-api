@@ -21,7 +21,7 @@ The system was developed with a modular architecture for better scalability and 
 ### Architecture Diagram
 
 <div align="center">
-  <img src="./public/architecture-diagram.png" alt="System Architecture Diagram" width="700" />
+  <img src="./public/architecture-diagram.v2.png" alt="System Architecture Diagram" width="700" />
 </div>
 
 ### Data Flow

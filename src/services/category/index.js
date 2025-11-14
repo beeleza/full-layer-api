@@ -1,4 +1,4 @@
-const CategoryRepository = require("../repositories/CategoryRepository");
+const CategoryRepository = require("../../repositories/category");
 
 class CategoryService {
   constructor() {

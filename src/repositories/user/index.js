@@ -1,4 +1,4 @@
-const BaseRepository = require("./BaseRepository");
+const BaseRepository = require("../base");
 const bcryptjs = require("bcryptjs");
 
 class UserRepository extends BaseRepository {

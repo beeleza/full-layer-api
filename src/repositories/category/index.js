@@ -1,5 +1,5 @@
-const BaseRepository = require("./BaseRepository");
-const { Category } = require("../db/models");
+const BaseRepository = require("../base/");
+const { Category } = require("../../db/models");
 
 class CategoryRepository extends BaseRepository {
   constructor() {
