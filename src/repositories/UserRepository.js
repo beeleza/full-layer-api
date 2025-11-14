@@ -25,7 +25,7 @@ class UserRepository extends BaseRepository {
     const user = await this.findOne({ email });
     if (!user) return null;
 
-    const match = await bcrypt.compare(password, user.password);
+    const match = await bcryptjs.compare(password, user.password);
     if (!match) return null;
 
     return user;
