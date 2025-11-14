@@ -1,10 +1,19 @@
 const CategoryService = require("../../services/category");
 
+/**
+ * CategoryController - Handles HTTP requests for category operations
+ *
+ * This controller layer manages the request/response cycle
+ * and delegates business logic to the service layer.
+ */
 class CategoryController {
   constructor() {
     this.categoryService = new CategoryService();
   }
 
+  /**
+   * Create a new category
+   */
   async create(req, res) {
     try {
       const category = await this.categoryService.createCategory(req.body);
@@ -14,6 +23,9 @@ class CategoryController {
     }
   }
 
+  /**
+   * Get category by ID
+   */
   async getById(req, res) {
     try {
       const category = await this.categoryService.getCategoryById(
@@ -25,6 +37,9 @@ class CategoryController {
     }
   }
 
+  /**
+   * List categories with pagination
+   */
   async list(req, res) {
     try {
       const { page = 1, limit = 10 } = req.query;
@@ -40,6 +55,9 @@ class CategoryController {
     }
   }
 
+  /**
+   * Update category by ID
+   */
   async update(req, res) {
     try {
       const category = await this.categoryService.updateCategory(
@@ -52,6 +70,9 @@ class CategoryController {
     }
   }
 
+  /**
+   * Delete category by ID
+   */
   async delete(req, res) {
     try {
       const result = await this.categoryService.deleteCategory(req.params.id);

@@ -5,6 +5,9 @@ const { User } = require("../../db/models");
 const userRepo = new UserRepository(User);
 
 module.exports = {
+  /**
+   * Register a new user
+   */
   register: async (req, res) => {
     try {
       const user = await userRepo.createUser(req.body);
@@ -22,6 +25,9 @@ module.exports = {
     }
   },
 
+  /**
+   * Login user and return JWT token
+   */
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
