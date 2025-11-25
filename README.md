@@ -148,7 +148,7 @@ Realiza logout limpando o cookie JWT.
 }
 ```
 
-### Categorias
+### 📂 Categorias
 
 Endpoints responsáveis pelo CRUD de categorias.
 Todas as rotas abaixo exigem **usuário autenticado**.
@@ -262,5 +262,134 @@ Exclui uma categoria pelo ID.
 ```json
 {
   "message": "Category deleted successfully"
+}
+```
+
+## 🛒 Produtos
+
+Endpoints responsáveis pelo CRUD de produtos. Assim como as categorias, todas as rotas exigem **usuário autenticado**.
+
+**POST** `/api/v1/product`
+
+Cria um novo produto associado ao usuário autenticado.
+
+```json
+{
+  "name": "string",
+  "price": "number",
+  "description": "string",
+  "categoryId": "number" // id de uma categoria existente
+}
+```
+
+**Reposta**:
+
+```json
+{
+  "price": "number",
+  "id": "number",
+  "name": "string",
+  "description": "string",
+  "categoryId": "number",
+  "createdAt": "2025-01-01T00:00:00.000Z",
+  "updatedAt": "2025-01-01T00:00:00.000Z",
+  "userId": "number"
+}
+```
+
+**GET** `/api/v1/product?page=1&limit=10`
+
+Lista produtos com paginação.
+
+### **Query Params**
+
+| Param | Tipo   | Default | Descrição                      |
+| ----- | ------ | ------- | ------------------------------ |
+| page  | number | 1       | Número da página               |
+| limit | number | 10      | Quantidade de itens por página |
+
+**Resposta**:
+
+```json
+{
+  "data": [
+    {
+      "price": "number",
+      "id": "number",
+      "name": "string",
+      "description": "string",
+      "createdAt": "2025-01-01T00:00:00.000Z",
+      "updatedAt": "2025-01-01T00:00:00.000Z",
+      "categoryId": "number",
+      "userId": "number"
+    }
+  ],
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 1,
+    "totalItems": 1,
+    "itemsPerPage": 10,
+    "hasNext": false,
+    "hasPrev": false
+  }
+}
+```
+
+**GET** `/api/v1/product/:id`
+
+Retorna um produto pelo ID
+
+```json
+{
+  "price": "number",
+  "id": "number",
+  "name": "string",
+  "description": "string",
+  "createdAt": "2025-01-01T00:00:00.000Z",
+  "updatedAt": "2025-01-01T00:00:00.000Z",
+  "categoryId": "number",
+  "userId": "number"
+}
+```
+
+**PATCH** `/api/v1/product/:id`
+
+Atualiza parcialmente um produto.
+
+```json
+{
+  "name": "string",
+  "price": "string",
+  "description": "string",
+  "categoryId": "number",
+  "createdAt": "2025-01-01T00:00:00.000Z",
+  "updatedAt": "2025-01-01T00:00:00.000Z"
+}
+```
+
+**Resposta**:
+
+```json
+{
+  "price": "number",
+  "id": "number",
+  "name": "string",
+  "description": "string",
+  "categoryId": "number",
+  "createdAt": "2025-01-01T00:00:00.000Z",
+  "updatedAt": "2025-01-01T00:00:00.000Z",
+  "userId": "number"
+}
+```
+
+**DELETE** `/api/v1/product/:id`
+
+Deleta um produto pelo ID
+
+**Reposta**:
+
+```json
+{
+  "message": "Product deleted successfully"
 }
 ```
