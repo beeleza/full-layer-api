@@ -1,8 +1,8 @@
-# 🧱 TaskDock API
+# 🧱 FullLayer API
 
 > 🚧 **Em construção** 🚧
 > Uma API RESTful desenvolvida com Node.js e Express, responsável pela autenticação de usuários e operações de CRUD de produtos.
-Este serviço faz parte do TaskDock, um sistema full-stack totalmente conteinerizado com Docker.
+> Este serviço faz parte do FullLayerJS, um sistema full-stack totalmente conteinerizado com Docker.
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -38,3 +38,48 @@ A API foi construída seguindo uma arquitetura em 3 camadas, garantindo organiza
 </div>
 
 ---
+
+## Como rodar o projeto
+
+1. Clonar o repositório
+
+```bash
+git clone https://github.com/beeleza/full-layer-api
+cd full-layer-api
+```
+
+2. Instalar dependências
+
+```bash
+npm install
+```
+
+3. Subir banco de dados com docker
+
+```bash
+docker compose up -d --build
+```
+
+4. Iniciar o servidor
+
+```bash
+npm run dev
+```
+
+## Variáveis de ambiente
+
+```env
+NODE_ENV=development
+
+PORT=3000
+FRONTEND_URL=http://localhost:5173
+JWT_SECRET="TOAA+qIk+6+pA6DHVQkOkb1mpJpiNetE+QwqUJzohFk="
+
+# CONFIGURAÇÕES DE CONEXÃO COM POSTGRESQL
+POSTGRES_DB=database_development
+POSTGRES_USER=root
+POSTGRES_PASSWORD=root
+PGADMIN_EMAIL=admin@admin.com
+PGADMIN_PASSWORD=admin
+DB_HOST=127.0.0.1
+```
